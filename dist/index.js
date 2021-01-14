@@ -16606,7 +16606,7 @@ let login = function (cert, login){
     execCommand.run('openssl', ['enc', '-nosalt', '-aes-256-cbc', '-d', '-in', cert.certificatePath, '-out', 'server.key', '-base64', '-K', cert.decryptionKey, '-iv', cert.decryptionIV]);
 
     core.info('==== Authenticating in the target org');
-    const instanceurl = login.orgType === 'sandbox' ? 'https://test.salesforce.com' : 'https://login.salesforce.com';
+    const instanceurl = login.orgType === 'sandbox' ? 'https://intellect--sbintegrat.my.salesforce.com/' : 'https://login.salesforce.com';
     core.info('Instance URL: ' + instanceurl);
     execCommand.run('sfdx', ['force:auth:jwt:grant', '--instanceurl', instanceurl, '--clientid', login.clientId, '--jwtkeyfile', 'server.key', '--username', login.username, '--setalias', 'sfdc']);
     execCommand.run('sfdx', ['force:org:list']);
